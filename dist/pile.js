@@ -11,7 +11,7 @@ class Pile {
         else
             return "La Pile est vide";
     }
-    peek() {
+    lastElement() {
         if (!this.isEmpty())
             return this.table[this.size() - 1];
         else
@@ -23,13 +23,15 @@ class Pile {
     isEmpty() {
         return this.size() === 0;
     }
+    contain(item) {
+        for (let i = 0; i < this.size(); i++) {
+            if (this.table[i] === item)
+                return true;
+        }
+        return false;
+    }
+    clear() {
+        this.table = [];
+    }
 }
 const test = new Pile();
-test.add(15);
-test.add(25);
-test.add(125);
-test.add(5);
-test.add(255);
-console.log(test.peek());
-let res = test.delete();
-console.log(test.isEmpty());

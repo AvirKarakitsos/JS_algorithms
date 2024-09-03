@@ -1,42 +1,42 @@
-class Pile {
-    table: Array<string | number>
+class Pile<T> {
+    public table: Array<T>
 
     constructor(){
         this.table = [];
     }
 
-    add(item) {
+    add(item: T):void {
         this.table.push(item)
     }
 
-    delete() {
+    delete(): (T | string) {
         if(!this.isEmpty()) return this.table.pop()
         else return "La Pile est vide"
     }
 
-    peek() {
+    lastElement():(T | string) {
         if(!this.isEmpty()) return this.table[ this.size() - 1]
         else "La Pile est vide"
     }
 
-    size() {
+    size(): number {
         return this.table.length
     }
 
-    isEmpty() {
+    isEmpty(): boolean {
         return this.size() === 0
+    }
+
+    contain(item: T): boolean {
+        for(let i=0; i< this.size(); i++) {
+            if(this.table[i] === item) return true 
+        }
+        return false
+    }
+
+    clear() {
+        this.table = []
     }
 }
 
 const test = new Pile()
-
-test.add(15)
-test.add(25)
-test.add(125)
-test.add(5)
-test.add(255)
-
-console.log(test.peek())
-
-let res = test.delete()
-console.log(test.isEmpty())
