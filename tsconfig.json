@@ -2,6 +2,8 @@
     "compilerOptions": {
         "outDir": "dist",
         "target": "ES2015",
+        "noEmit": true,
+        "allowImportingTsExtensions": true,
         "noEmitOnError": false,
         "strict": false
     },
