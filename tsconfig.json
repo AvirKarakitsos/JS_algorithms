@@ -1,11 +1,19 @@
 {
     "compilerOptions": {
-        "outDir": "dist",
-        "target": "ES2015",
-        "noEmit": true,
-        "allowImportingTsExtensions": true,
+        "rootDir": "./src",                     // Dossier source contenant les fichiers TypeScript
+        "outDir": "./dist",
+        "target": "ES6",
+        "module": "ES6",
+        // "noEmit": true,
+        // "allowImportingTsExtensions": true,
         "noEmitOnError": false,
         "strict": false
     },
-    "include": ["src/**/*"]
+    "include": [
+    "src/**/*"                              // Inclure tous les fichiers TypeScript dans le dossier src
+    ],
+    "exclude": [
+        "node_modules",                         // Exclure le dossier node_modules
+        "dist"                                  // Exclure le dossier de sortie
+    ]
 }

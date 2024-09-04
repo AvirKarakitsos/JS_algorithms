@@ -1,11 +1,6 @@
-import Algo from "./algo.ts";
+import Algo from "./algo.js";
 
-class Pile<T> extends Algo<T>{
-    //public table: Array<T>
-
-    // constructor(){
-    //     this.table = [];
-    // }
+export default class Pile<T> extends Algo<T>{
 
     add(item: T):void {
         this.table.push(item)
@@ -21,12 +16,3 @@ class Pile<T> extends Algo<T>{
         else "La Pile est vide"
     }
 }
-
-console.log("test à venir")
-
-const test = new Pile()
-test.add("arno")
-test.add("kioss")
-test.add("andrea")
-
-console.log(test.table)
