@@ -1,8 +1,7 @@
 export default class Algo<T> {
-
     public table: T[];
 
-    constructor(){
+    constructor() {
         this.table = [];
     }
 
@@ -16,12 +15,11 @@ export default class Algo<T> {
 
     contain(item) {
         for (let i = 0; i < this.size(); i++) {
-            if (this.table[i] === item)
-                return true;
+            if (this.table[i] === item) return true;
         }
         return false;
     }
-    
+
     clear() {
         this.table = [];
     }
