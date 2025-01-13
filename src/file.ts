@@ -2,7 +2,9 @@ import Algo from './algo.js';
 
 export default class File<T> extends Algo<T> {
     add(item: T): void {
-        this.table.unshift(item);
+        Array.isArray(item)
+            ? this.table.unshift(...item)
+            : this.table.unshift(item);
     }
 
     delete(): T | string {

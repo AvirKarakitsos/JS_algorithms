@@ -1,8 +1,8 @@
 import Algo from './algo.js';
 
 export default class Pile<T> extends Algo<T> {
-    add(item: T): void {
-        this.table.push(item);
+    add(item: T | T[]): void {
+        Array.isArray(item) ? this.table.push(...item) : this.table.push(item);
     }
 
     delete(): T | string {

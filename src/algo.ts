@@ -5,43 +5,39 @@ export default class Algo<T> {
         this.table = [];
     }
 
-    size() {
+    size(): number {
         return this.table.length;
     }
 
-    isEmpty() {
+    isEmpty(): boolean {
         return this.size() === 0;
     }
 
-    linearSearch(item) {
+    linearSearch(item: T): boolean {
         for (let i = 0; i < this.size(); i++) {
             if (this.table[i] === item) return true;
         }
         return false;
     }
 
-    binarySearch(item) {
+    binarySearch(item: T): boolean {
         let left = 1;
         let right = this.size();
 
         while (Math.abs(right - left) !== 1) {
             let divided = Math.floor((left + right) / 2);
-            console.log('divided: ' + divided);
 
             if (item === this.table[divided - 1]) return true;
             else if (item < this.table[divided - 1]) right = divided;
             else left = divided;
         }
-        console.log('ended algo');
-        console.log('left value: ' + this.table[left - 1]);
-        console.log('right value: ' + this.table[right - 1]);
 
         if (item === this.table[left - 1] || item === this.table[right - 1])
             return true;
         else return false;
     }
 
-    clear() {
+    clear(): void {
         this.table = [];
     }
 }
