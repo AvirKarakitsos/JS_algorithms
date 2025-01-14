@@ -1,13 +1,16 @@
 import Pile from './pile.js';
 
 let tab = new Pile();
-let arr = Array.from(Array(10000).keys());
+let arr = Array.from([1, 2, 3, 4, 5, 5, 8, 10, 11, 15, 20]);
 tab.add(arr);
 
-console.time('BS');
-let result2 = tab.binarySearch(9990);
-console.timeEnd('BS');
+let result1 = tab.jumpSearch(2);
+console.log(result1);
 
-console.time('LS');
-let result1 = tab.linearSearch(9990);
-console.timeEnd('LS');
+// console.time('BS');
+// let result2 = tab.binarySearch(9990);
+// console.timeEnd('BS');
+
+// console.time('LS');
+// let result1 = tab.linearSearch(9990);
+// console.timeEnd('LS');

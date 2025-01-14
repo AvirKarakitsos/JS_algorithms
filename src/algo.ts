@@ -38,24 +38,29 @@ export default class Algo<T> {
     }
 
     jumpSearch(item: T) {
-        let jump = 3;
+        let jump = 5;
         let i = 1;
 
-        while (item <= this.table[i * jump - 1]) {
+        while (item > this.table[i * jump]) {
+            console.log('loop while: ' + i);
             i++;
 
             if (i * jump > this.size()) {
                 if (item <= this.table[this.size() - 1]) {
-                    for (let k = (i - 1) * jump - 1; k < this.size(); i++) {
-                        if (this.table[k] === item) return true;
+                    for (let k = (i - 1) * jump; k < this.size(); k++) {
+                        if (this.table[k] === item && item <= this.table[k])
+                            return true;
                     }
                     return false;
                 } else return false;
             }
         }
 
-        for (let k = (i - 1) * jump - 1; k <= i * jump - 1; i++) {
-            if (this.table[i] === item) return true;
+        for (let k = (i - 1) * jump; k <= i * jump; k++) {
+            console.log('loop for: ' + k);
+            if (this.table[k] === item && item <= this.table[k]) {
+                return true;
+            }
         }
         return false;
     }
