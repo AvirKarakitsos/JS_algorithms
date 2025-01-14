@@ -1,7 +1,7 @@
 import Algo from './algo.js';
 export default class Pile extends Algo {
     add(item) {
-        this.table.push(item);
+        Array.isArray(item) ? this.table.push(...item) : this.table.push(item);
     }
     delete() {
         if (!this.isEmpty())

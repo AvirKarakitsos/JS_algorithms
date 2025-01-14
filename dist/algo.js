@@ -20,7 +20,6 @@ export default class Algo {
         let right = this.size();
         while (Math.abs(right - left) !== 1) {
             let divided = Math.floor((left + right) / 2);
-            console.log('divided: ' + divided);
             if (item === this.table[divided - 1])
                 return true;
             else if (item < this.table[divided - 1])
@@ -28,9 +27,6 @@ export default class Algo {
             else
                 left = divided;
         }
-        console.log('ended algo');
-        console.log('left value: ' + this.table[left - 1]);
-        console.log('right value: ' + this.table[right - 1]);
         if (item === this.table[left - 1] || item === this.table[right - 1])
             return true;
         else

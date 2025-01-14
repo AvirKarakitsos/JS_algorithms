@@ -37,6 +37,29 @@ export default class Algo<T> {
         else return false;
     }
 
+    jumpSearch(item: T) {
+        let jump = 3;
+        let i = 1;
+
+        while (item <= this.table[i * jump - 1]) {
+            i++;
+
+            if (i * jump > this.size()) {
+                if (item <= this.table[this.size() - 1]) {
+                    for (let k = (i - 1) * jump - 1; k < this.size(); i++) {
+                        if (this.table[k] === item) return true;
+                    }
+                    return false;
+                } else return false;
+            }
+        }
+
+        for (let k = (i - 1) * jump - 1; k <= i * jump - 1; i++) {
+            if (this.table[i] === item) return true;
+        }
+        return false;
+    }
+
     clear(): void {
         this.table = [];
     }
