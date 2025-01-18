@@ -13,6 +13,11 @@ export default class Algo<T> {
         return this.size() === 0;
     }
 
+    clear(): void {
+        this.table = [];
+    }
+
+    //Search Algorithms
     linearSearch(item: T): boolean {
         for (let i = 0; i < this.size(); i++) {
             if (this.table[i] === item) return true;
@@ -62,7 +67,5 @@ export default class Algo<T> {
         }
     }
 
-    clear(): void {
-        this.table = [];
-    }
+    //Sort Algorithms
 }
