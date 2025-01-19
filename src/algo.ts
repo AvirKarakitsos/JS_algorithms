@@ -68,4 +68,23 @@ export default class Algo<T> {
     }
 
     //Sort Algorithms
+
+    insertionSort() {
+        // Parcourir le tableau à partir du deuxième élément
+        for (let i = 1; i < this.table.length; i++) {
+            let key = this.table[i]; // L'élément à insérer
+            let j = i - 1;
+
+            // Déplacer les éléments de la partie triée qui sont plus grands que "key" vers la droite
+            while (j >= 0 && this.table[j] > key) {
+                this.table[j + 1] = this.table[j];
+                j--;
+            }
+
+            // Insérer l'élément "key" à sa position correcte
+            this.table[j + 1] = key;
+        }
+
+        return this.table; // Retourner le tableau trié
+    }
 }
